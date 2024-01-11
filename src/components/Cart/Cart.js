@@ -3,8 +3,9 @@ import Card from "../UI/Card";
 import classes from "./Cart.module.css";
 import CartItem from "./CartItem";
 
-const Cart = (props) => {
-	const cartItem = useSelector((state) => state.cart);
+const Cart = () => {
+	const cartItem = useSelector((state) => state.cart.items);
+	console.log(cartItem);
 
 	return (
 		<Card className={classes.cart}>
@@ -18,7 +19,7 @@ const Cart = (props) => {
 								id: item.id,
 								title: item.title,
 								quantity: item.qty,
-								total: item.price * item.qty,
+								total: item.totalPrice,
 								price: item.price,
 							}}
 						/>
